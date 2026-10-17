@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>طريق للجميع · Access for Everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050d24;--fg:#eaf2ff;--mut:#a9bddf;--pri:#00e5ff;--on:#050d24;--acc:#39ff14;--sun:#ffe600;--card:#0c1a40;--line:#1f3a7a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#050d24;--fg:#eaf2ff;--mut:#a9bddf;--pri:#00e5ff;--on:#050d24;--card:#0c1a40;--line:#1f3a7a}}
+:root[data-theme="light"]{--bg:#fff;--fg:#0a2540;--mut:#3f5f7a;--pri:#0276b8;--on:#fff;--acc:#ff6b35;--sun:#ffd60a;--card:#eaf6ff;--line:#c9e6fa}
+*{box-sizing:border-box}
+html{scroll-padding-top:90px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.85 "IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif}
+body[data-l="ar"] .en,body[data-l="en"] .ar{display:none}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.skip{position:absolute;inset-inline-start:8px;top:-70px;background:var(--pri);color:var(--on);padding:8px 14px;z-index:30}
+.skip:focus{top:8px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:19}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:20}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+nav .w{display:flex;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+nav b{font-size:1.2rem;color:var(--pri);margin-inline-end:auto}
+nav a{color:var(--fg);text-decoration:none;font-size:.95rem;padding:4px 2px}
+nav a:hover{color:var(--pri);text-decoration:underline}
+button{font:inherit;font-size:.9rem;cursor:pointer;border:2px solid var(--pri);background:transparent;color:var(--pri);padding:3px 14px;border-radius:99px}
+button:hover{background:var(--pri);color:var(--on)}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;padding:56px 0 30px}
+h1{font-size:clamp(2.3rem,6vw,3.8rem);line-height:1.2;margin:0 0 .4em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 .3em;line-height:1.3}
+h3{margin:0 0 4px;font-size:1.1rem}
+p{color:var(--mut);margin:.4em 0;max-width:62ch}
+.lead{font-size:1.15rem}
+.cta{display:inline-block;margin-top:14px;background:var(--pri);color:var(--on);padding:10px 24px;border-radius:99px;text-decoration:none;font-weight:700}
+.cta:hover{filter:brightness(1.1)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;padding:10px 0 50px}
+.stats div{background:var(--pri);color:var(--on);border-radius:16px;padding:18px 22px}
+.stats b{display:block;font-size:2.2rem;line-height:1.2}
+.stats span{font-size:.95rem}
+section{padding:54px 0;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:22px}
+.card{background:var(--card);border-radius:14px;padding:20px;border:1px solid var(--line)}
+.card .i{font-size:2rem;line-height:1}
+.card p{margin:0;font-size:.97rem}
+.band{background:var(--card);border-radius:20px;padding:30px;border:1px solid var(--line)}
+label{font-weight:700;display:block;margin-bottom:6px}
+input[type=text]{font:inherit;width:100%;padding:12px 16px;border:2px solid var(--pri);border-radius:10px;background:var(--bg);color:var(--fg)}
+#out{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px;min-height:84px}
+.cell{display:grid;grid-template-columns:repeat(2,20px);gap:7px;direction:ltr}
+.cell i{width:20px;height:20px;border-radius:50%;border:2px solid var(--line)}
+.cell i.on{background:var(--pri);border-color:var(--pri);box-shadow:0 0 12px var(--pri)}
+.cell.sp{opacity:.2}
+.chk{list-style:none;padding:0;margin:20px 0 0;max-width:70ch}
+.chk li{margin:8px 0}
+.chk label{display:flex;gap:12px;align-items:flex-start;font-weight:400;background:var(--bg);padding:12px 16px;border-radius:10px;border:1px solid var(--line);cursor:pointer}
+.chk input{width:22px;height:22px;margin-top:6px;accent-color:var(--pri);flex:none}
+.bar{height:14px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:18px;max-width:70ch}
+.bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .3s}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:10px 0;max-width:760px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0}
+a{color:var(--pri);text-underline-offset:4px}
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--mut);font-size:.95rem}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:30px}.hero svg{max-width:200px;margin:auto}}
+</style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050d24'/%3E%3Ccircle cx='22' cy='16' r='7' fill='%2300e5ff'/%3E%3Ccircle cx='42' cy='16' r='7' fill='none' stroke='%231f3a7a' stroke-width='3'/%3E%3Ccircle cx='22' cy='32' r='7' fill='none' stroke='%231f3a7a' stroke-width='3'/%3E%3Ccircle cx='42' cy='32' r='7' fill='%2339ff14'/%3E%3Ccircle cx='22' cy='48' r='7' fill='%23ffe600'/%3E%3Ccircle cx='42' cy='48' r='7' fill='none' stroke='%231f3a7a' stroke-width='3'/%3E%3C/svg%3E">
+</head>
+<body data-l="ar">
+<a class="skip" href="#main"><span class="ar">تخطَّ إلى المحتوى</span><span class="en">Skip to content</span></a>
+<nav><div class="w">
+<b><span class="ar">طريق للجميع</span><span class="en">Access for Everyone</span></b>
+<a href="#understand"><span class="ar">افهم</span><span class="en">Understand</span></a>
+<a href="#help"><span class="ar">ساعد</span><span class="en">Help</span></a>
+<a href="#braille">Braille</a>
+<a href="#tech"><span class="ar">التقنية</span><span class="en">Tech</span></a>
+<a href="#web"><span class="ar">الويب</span><span class="en">Web</span></a>
+<a href="#myths"><span class="ar">خرافات</span><span class="en">Myths</span></a>
+<button id="lang" type="button">English</button>
+<button id="theme" type="button"><span class="ar">الوضع</span><span class="en">Theme</span></button>
+</div></nav>
+<main id="main" class="w">
+<div class="hero">
+<div>
+<h1><span class="ar">العالم يتّسع للجميع.</span><span class="en">The world has room for everyone.</span></h1>
+<p class="lead"><span class="ar">دليل مجاني يشرح كيف نساعد المكفوفين وذوي الإعاقة بكرامة واحترام، وكيف نبني تقنية يستطيع الجميع استخدامها.</span><span class="en">A free guide to supporting blind people and people with disabilities with dignity, and to building technology everyone can use.</span></p>
+<a class="cta" href="#braille"><span class="ar">جرّب كتابة اسمك بالبرايل</span><span class="en">Try your name in braille</span></a>
+</div>
+<svg viewBox="0 0 240 300" aria-hidden="true"><rect width="240" height="300" rx="40" fill="var(--card)"/><circle cx="80" cy="70" r="34" fill="var(--pri)"/><circle cx="160" cy="70" r="34" fill="none" stroke="var(--line)" stroke-width="6"/><circle cx="80" cy="150" r="34" fill="none" stroke="var(--line)" stroke-width="6"/><circle cx="160" cy="150" r="34" fill="var(--acc)"/><circle cx="80" cy="230" r="34" fill="var(--sun)"/><circle cx="160" cy="230" r="34" fill="none" stroke="var(--line)" stroke-width="6"/></svg>
+</div>
+<div class="stats">
+<div><b>2.2 <span class="ar">مليار</span><span class="en">billion</span></b><span class="ar">شخص حول العالم لديهم ضعف في البصر (منظمة الصحة العالمية)</span><span class="en">people worldwide have a vision impairment (WHO)</span></div>
+<div><b>1.3 <span class="ar">مليار</span><span class="en">billion</span></b><span class="ar">شخص يعيشون مع إعاقة ملحوظة</span><span class="en">people live with a significant disability</span></div>
+<div><b><span class="ar">1 من 6</span><span class="en">1 in 6</span></b><span class="ar">أشخاص في العالم لديهم إعاقة</span><span class="en">people in the world has a disability</span></div>
+</div>
+
+<section id="understand"><h2><span class="ar">افهم أنواع الإعاقة</span><span class="en">Understand the types of disability</span></h2>
+<p><span class="ar">الإعاقة ليست مرضًا ولا نقصًا في الإنسان. غالبًا العائق في البيئة التي لم تُصمَّم للجميع.</span><span class="en">Disability is not an illness. Often the barrier is an environment not designed for everyone.</span></p>
+<div class="grid" id="types"></div></section>
+
+<section id="help"><h2><span class="ar">كيف تساعد شخصًا كفيفًا</span><span class="en">How to help a blind person</span></h2>
+<div class="grid" id="tips"></div></section>
+
+<section id="braille"><div class="band">
+<h2>Braille</h2>
+<p><span class="ar">برايل نظام كتابة باللمس من ست نقاط بارزة، اخترعه لوي برايل في فرنسا عام 1824. اكتب اسمك لترى النقاط.</span><span class="en">Braille is a touch writing system of six raised dots, created by Louis Braille in France in 1824. Type your name to see the dots.</span></p>
+<label for="name"><span class="ar">اسمك (عربي أو إنجليزي)</span><span class="en">Your name (Arabic or English)</span></label>
+<input id="name" type="text" maxlength="24" autocomplete="off">
+<div id="out" aria-live="polite"></div>
+</div></section>
+
+<section id="tech"><h2><span class="ar">تقنيات تغيّر الحياة</span><span class="en">Technology that changes lives</span></h2>
+<div class="grid" id="techs"></div></section>
+
+<section id="web"><h2><span class="ar">اختبر موقعك: هل هو متاح للجميع؟</span><span class="en">Test your site: is it accessible?</span></h2>
+<p><span class="ar">علّم على ما يحققه موقعك أو تطبيقك.</span><span class="en">Tick what your site or app already does.</span></p>
+<ul class="chk" id="list"></ul>
+<div class="bar"><i id="fill"></i></div>
+<p id="score" aria-live="polite"></p></section>
+
+<section id="myths"><h2><span class="ar">خرافات وحقائق</span><span class="en">Myths and facts</span></h2><div id="mf"></div></section>
+
+<section><h2><span class="ar">تواريخ وحقوق</span><span class="en">Key dates and rights</span></h2><div class="grid" id="days"></div></section>
+
+<section><h2><span class="ar">تعلّم أكثر</span><span class="en">Learn more</span></h2>
+<ul>
+<li><a href="https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment">WHO: Blindness and visual impairment</a></li>
+<li><a href="https://www.who.int/news-room/fact-sheets/detail/disability-and-health">WHO: Disability and health</a></li>
+<li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C: Introduction to Web Accessibility</a></li>
+<li><a href="https://webaim.org">WebAIM</a></li>
+<li><a href="https://www.rnib.org.uk">RNIB</a></li>
+</ul></section>
+</main>
+<footer><div class="w"><span class="ar">مشروع توعوي عن إمكانية الوصول، تم إنشاؤه بمساعدة الذكاء الاصطناعي. المحتوى عام وتعليمي وليس نصيحة طبية.</span><span class="en">An accessibility awareness project, created with the help of AI. General educational content, not medical advice.</span></div></footer>
+<script>
+(function(){
+var t=function(a,e){return '<span class="ar">'+a+'</span><span class="en">'+e+'</span>'};
+var card=function(r){return '<div class="card"><div class="i" aria-hidden="true">'+r[0]+'</div><h3>'+t(r[1],r[2])+'</h3><p>'+t(r[3],r[4])+'</p></div>'};
+var $=function(i){return document.getElementById(i)};
+var types=[["👁","البصر","Vision","من ضعف البصر إلى العمى الكامل. يستخدمون العصا البيضاء وقارئات الشاشة وبرايل.","From low vision to total blindness. Tools include white canes, screen readers and braille."],
+["👂","السمع","Hearing","يتواصلون بلغة الإشارة وقراءة الشفاه والترجمة النصية.","Sign language, lip reading and captions help them communicate."],
+["🦽","الحركة","Mobility","كراسي متحركة وعكازات. المنحدرات والمصاعد تفتح لهم الأبواب.","Wheelchairs and crutches. Ramps and lifts open doors for them."],
+["🧠","الذهن والتعلّم","Cognitive","التوحد وعسر القراءة وغيرها. تفيدهم اللغة البسيطة والصبر والوقت الكافي.","Autism, dyslexia and more. Plain language, patience and time help."],["🗣","النطق والكلام","Speech","بعض الناس يتكلمون ببطء أو بصعوبة. امنحهم وقتًا ولا تكمل جملهم عنهم.","Some people speak slowly or with difficulty. Give them time and do not finish their sentences."],["🫥","إعاقات غير مرئية","Invisible disabilities","بعض الإعاقات لا تظهر للعين، كالصرع وبعض الأمراض المزمنة. لا تحكم من المظهر.","Some disabilities cannot be seen, such as epilepsy or chronic conditions. Never judge by appearance."]];
+var tips=[["🙋","اسأل أولًا","Ask first","قل «هل تحتاج مساعدة؟» وانتظر الجواب. لا تُمسك بذراعه أو عصاه دون إذن.","Say \"Would you like help?\" and wait. Never grab an arm or a cane."],
+["👋","عرّف بنفسك","Introduce yourself","قل اسمك عند الاقتراب، وأخبره عندما تغادر.","Say who you are when you approach, and say when you leave."],
+["📍","كن دقيقًا","Be precise","قل «على يمينك» و«أمامك بخمس خطوات» بدل «هناك» و«هنا».","Say \"on your right\" or \"five steps ahead\", not \"over there\"."],
+["🧱","اترك الممرات خالية","Keep paths clear","لا تترك أغراضًا في الطريق، وأعد الأشياء إلى أماكنها.","Keep walkways clear and put things back where they were."],
+["🗣","خاطبه مباشرة","Talk to the person","خاطبه هو لا مرافقه، وبصوت عادي.","Speak to them, not their companion, in a normal voice."],
+["🐕","احترم الكلب المرشد","Respect guide dogs","لا تداعبه ولا تطعمه أثناء العمل.","Do not pet or feed a working guide dog."],["🍽","في المطعم","At a restaurant","اقرأ له القائمة، وصف مكان الطعام في الطبق كعقارب الساعة: «اللحم عند الثالثة».","Read the menu aloud and describe food like a clock face: the meat is at three o'clock."],["🔊","صف ما حوله","Describe the surroundings","أخبره بما يحدث حوله، كوجود درج أو باب أو شخص يقترب.","Tell them what is nearby, such as stairs, a door or someone approaching."],["🤝","السلام بالكلام","Greet with words","قد لا يرى يدك الممدودة. قل «أمدّ يدي للسلام» أو حيِّه بصوتك.","They may not see an offered hand. Say that you are offering a handshake, or greet by voice."]];
+var techs=[["🖥","NVDA / JAWS","NVDA / JAWS","قارئات شاشة لويندوز. NVDA مجاني.","Screen readers for Windows. NVDA is free."],
+["📱","VoiceOver / TalkBack","VoiceOver / TalkBack","قارئات الشاشة المدمجة في آيفون وأندرويد.","Built-in screen readers on iPhone and Android."],
+["📞","Be My Eyes","Be My Eyes","تطبيق يصل الكفيف بمتطوع عبر مكالمة فيديو ليصف له ما حوله.","An app connecting blind users to volunteers by video call."],
+["📷","Seeing AI","Seeing AI","تطبيق من مايكروسوفت يقرأ النصوص ويصف المشاهد.","A Microsoft app that reads text and describes scenes."],["⌨","شاشات برايل","Braille displays","أجهزة تعرض النص بنقاط بارزة تتحرك، وتتصل بالهاتف أو الحاسوب.","Devices that show text as moving raised dots, connected to a phone or computer."],["🔍","مكبّرات الشاشة","Screen magnifiers","تكبّر النصوص والصور لمن لديهم بصر جزئي.","They enlarge text and images for people with low vision."],["🎧","الكتب الصوتية","Audiobooks","تتيح القراءة بالاستماع، وهي مفيدة أيضًا لعسر القراءة.","Reading by listening, also helpful for dyslexia."],["🎙","المساعدات الصوتية","Voice assistants","يتحكم المستخدم بالهاتف والمنزل الذكي بصوته.","Users control phones and smart homes with their voice."]];
+var web=[["أضف نصًا بديلًا (alt) لكل صورة مهمة","Alt text on every meaningful image"],["عناوين مرتبة (h1 ثم h2) وعناصر HTML صحيحة","Ordered headings and correct HTML elements"],["كل شيء يعمل بلوحة المفاتيح والتركيز ظاهر","Everything works by keyboard with visible focus"],["تباين ألوان عالٍ ولا اعتماد على اللون وحده","High color contrast, never color alone"],["ترجمة نصية للفيديو","Captions on videos"],["جرّبته مع قارئ شاشة","Tested with a screen reader"]];
+var mf=[["المكفوفون يرون الظلام فقط","Blind people see only black","كثير منهم لديهم بعض البصر، كإحساس بالضوء أو الأشكال.","Many have some sight, such as light or shapes."],
+["الإعاقة تعني عدم القدرة على العمل","Disability means being unable to work","مع التهيئة والدعم يعمل الأشخاص ذوو الإعاقة في كل المجالات.","With access and support, people with disabilities work in every field."],
+["المكفوف لا يستخدم الإنترنت","Blind people can't use the internet","يستخدمون الهواتف والحواسيب يوميًا بقارئات الشاشة.","They use phones and computers daily with screen readers."],
+["الشفقة أفضل مساعدة","Pity is the best help","الاحترام وتكافؤ الفرص أهم من الشفقة.","Respect and equal access matter more than pity."]];
+$("types").innerHTML=types.map(card).join("");
+$("tips").innerHTML=tips.map(card).join("");
+$("techs").innerHTML=techs.map(card).join("");
+$("days").innerHTML=[["📅","4 يناير","January 4","اليوم العالمي لبرايل، ذكرى ميلاد لوي برايل عام 1809.","World Braille Day, the birthday of Louis Braille, born in 1809."],["👁","الخميس الثاني من أكتوبر","Second Thursday of October","اليوم العالمي للبصر للتوعية بصحة العيون.","World Sight Day, raising awareness of eye health."],["🦯","15 أكتوبر","October 15","يوم العصا البيضاء، يُحتفى به في دول كثيرة.","White Cane Day, observed in many countries."],["🌍","3 ديسمبر","December 3","اليوم الدولي للأشخاص ذوي الإعاقة من الأمم المتحدة.","The UN International Day of Persons with Disabilities."],["📜","2006","2006","اعتمدت الأمم المتحدة اتفاقية حقوق الأشخاص ذوي الإعاقة.","The UN adopted the Convention on the Rights of Persons with Disabilities."]].map(card).join("");
+$("list").innerHTML=web.map(function(w,i){return '<li><label><input type="checkbox">'+t(w[0],w[1])+'</label></li>'}).join("");
+$("mf").innerHTML=mf.map(function(m){return '<details><summary>'+t(m[0],m[1])+'</summary><p>'+t("الحقيقة: "+m[2],"Fact: "+m[3])+'</p></details>'}).join("");
+var b=document.body;
+function score(){var n=document.querySelectorAll(".chk input:checked").length,p=Math.round(n/web.length*100);
+$("fill").style.width=p+"%";
+$("score").innerHTML=t(n+" من "+web.length+(n===web.length?" ممتاز! موقعك متاح للجميع.":""),n+" of "+web.length+(n===web.length?" Excellent! Your site is accessible.":""))}
+$("list").addEventListener("change",score);score();
+var M={a:"1",b:"12",c:"14",d:"145",e:"15",f:"124",g:"1245",h:"125",i:"24",j:"245",k:"13",l:"123",m:"134",n:"1345",o:"135",p:"1234",q:"12345",r:"1235",s:"234",t:"2345",u:"136",v:"1236",w:"2456",x:"1346",y:"13456",z:"1356","ا":"1","أ":"1","إ":"1","آ":"1","ب":"12","ت":"2345","ث":"1456","ج":"245","ح":"156","خ":"1346","د":"145","ذ":"2346","ر":"1235","ز":"1356","س":"234","ش":"146","ص":"12346","ض":"1246","ط":"23456","ظ":"123456","ع":"12356","غ":"126","ف":"124","ق":"12345","ك":"13","ل":"123","م":"134","ن":"1345","ه":"125","ة":"125","و":"2456","ي":"24","ى":"24","ء":"3"};
+var order=[1,4,2,5,3,6];
+function cell(d,sp){var h='<span class="cell'+(sp?' sp':'')+'" aria-hidden="true">';order.forEach(function(n){h+='<i'+(d.indexOf(n)>-1?' class="on"':'')+'></i>'});return h+'</span>'}
+var inp=$("name");
+function draw(){var s=inp.value.toLowerCase(),h="";
+for(var i=0;i<s.length;i++){var c=s[i];if(c===" ")h+=cell("",1);else if(M[c])h+=cell(M[c])}
+$("out").innerHTML=h||'<p>'+t("اكتب حروفًا لترى النقاط.","Type letters to see the dots.")+'</p>'}
+inp.addEventListener("input",draw);draw();
+$("lang").addEventListener("click",function(){var ar=b.dataset.l==="ar";b.dataset.l=ar?"en":"ar";
+document.documentElement.lang=ar?"en":"ar";document.documentElement.dir=ar?"ltr":"rtl";this.textContent=ar?"العربية":"English"});
+$("theme").addEventListener("click",function(){var r=document.documentElement;r.dataset.theme=r.dataset.theme==="light"?"dark":"light"});
+})();
+</script>
+</body>
+</html>
